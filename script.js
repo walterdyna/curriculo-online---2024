@@ -12,7 +12,7 @@ function showInfo(category) {
         case 'Experiencias':
             info = `
                 <h1>Experiência Profissional</h1>
-                
+
                 <h3>Grupo Telemed. – 11/2023 a atual.</h3>
                 <h4>Cargo: Analista de suporte TI.</h4>
                 <p>Função Exercida: Experiencia em ajuste no site da empresa, Integração novo produtos por API, Busca de novas tecnologias, criação do contrato online com interação com Gov, utilizando as tecnologias HTML, CSS e JavaScript.</p>
@@ -77,8 +77,7 @@ function showInfo(category) {
                 <h3>Prefeitura municipal de Vila Velha. – 06/2003 a 06/.</h3>
                 <h4>Auxiliar Administrativo -- Tecnico em informatica.</h4>
                 <p>Experiencia em digitação de Planilha, Gráficos, Compras, Participação em licitação, contratação, elaboração de relatórios e técnico em informática ( manutenção do parque de computadores).</p>
-                
-            `;
+                `;
             break;
         case 'Formacao':
             info = `
@@ -112,6 +111,23 @@ function showInfo(category) {
                 <!-- Adicionar mais conhecimentos aqui -->
             `;
             break;
+            case 'Portfolio':
+                info = `
+                    <h1>Portfolio</h1>
+                    <p><a class="protifolio" href="https://dynasbrother.netlify.app/">Familia Mario</a>
+                    <a class="protifolio" href="https://dynasbrother.netlify.app/mario">Jogo do Mario 2.0</a>
+                    <a class="protifolio" href="https://jogo-mario-pula-cano.netlify.app/">Mario pula cano</a>
+                    <a class="protifolio" href="https://mulambosdoasfalto.netlify.app/">Site de videos</a>
+                    <a class="protifolio" href="https://dev-sorteio-dyna.netlify.app/">Site de sorteio</a></p>
+                    
+                    <p><a class="protifolio2" href="https://missao-instragram.netlify.app/">Instagra (copia)</a>
+                    <a class="protifolio2" href="https://currency-converter-dyna.netlify.app/">Conversor de moedas</a>
+                    <a class="protifolio2" href="https://climatempodyna.netlify.app/">Site do tempo</a>
+                    <a class="protifolio2" href="https://projetocss2.netlify.app/">Easy Shopping</a>
+                    <a class="protifolio2" href="https://desafio-css1.netlify.app/">Wide Coverange</a></p>
+                `;
+                break;
+        
         default:
             info = '<p>Nenhuma informação disponível.</p>';
     }
@@ -125,3 +141,12 @@ document.querySelector('.popup').addEventListener('click', function (event) {
         this.style.display = 'none';
     }
 });
+
+function startShake() {
+    document.querySelector('.link-whatsapp').classList.add('shake');
+}
+
+function stopShake() {
+    document.querySelector('.link-whatsapp').classList.remove('shake');
+}
+

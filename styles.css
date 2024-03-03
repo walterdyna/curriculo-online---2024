@@ -19,9 +19,33 @@ aside {
     width: 200px;
 }
 
-.imgLogo{
+.imgLogo {
+    position: relative;
     width: 150px;
+    border: 2px dotted rgb(32, 9, 238);
+    /* Remova o overflow: hidden; para que a animação seja visível */
 }
+
+.imgLogo::before {
+    content: ''; /* Adiciona um conteúdo antes do elemento */
+    position: absolute; /* Define a posição como absoluta */
+    top: 50%; /* Posiciona no meio vertical */
+    left: -2px; /* Posiciona um pouco antes da borda esquerda */
+    width: 4px; /* Define a largura do pontinho */
+    height: 4px; /* Define a altura do pontinho */
+    background-color: #333; /* Cor do pontinho */
+    animation: moveDot 1s linear infinite; /* Define a animação */
+}
+
+@keyframes moveDot {
+    0% {
+        transform: translateX(0); /* Começa na posição inicial */
+    }
+    100% {
+        transform: translateX(100%); /* Move até o final */
+    }
+}
+
 
 aside img {
     border-radius: 50%;
@@ -119,3 +143,59 @@ a {
     right: 25px;
     bottom: 25px;
 }
+
+.shake {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+
+.link-github {
+    height: 70px;
+    position: fixed;
+    left: 20px;
+    bottom: 25px;
+}
+
+.link-linkendin {
+    height: 50px;
+    position: fixed;
+    left: 100px;
+    bottom: 40px;
+}
+
+.protifolio {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    color: black;
+}
+
+.protifolio2 {
+    text-decoration: none;
+    margin: 4px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+header a:hover {
+    color:rgb(0, 255, 0);
+    font-size: 20px;
+    transition: 0.5s ease-in-out;
+}
+
