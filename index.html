@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="mascara-formulario" onclick="esconderForm()"></div>
     <aside>
       <img class="imgLogo" src="./img/Walter.jpg" alt="Foto de Walter Dyna" />
       <p>DESENVOLVEDOR | PROGRAMADOR | FRONT END | BACK END</p>
 
       <p class="fraseDoDia">
-        Até que o sol brilhe, acenda uma vela na escuridão
+        Até que o sol brilhe, acenda uma vela na escuridão.
       </p>
     </aside>
     <header>
+
       <nav>
         <ul>
+
           <li><a href="#" onclick="showInfo('Resumo')">Resumo</a></li>
           <li>
             <a href="#" onclick="showInfo('Experiencias')">Experiências</a>
@@ -31,11 +34,8 @@
             <a class="#" onclick="showInfo('Portfolio')">Portfolio</a>
           </li>
           <li>
-            <a class="botão-entre-em-contato" onclick="mostarForm()">Contato</a>
+            <a class="Contato" onclick="mostarForm()">Contato</a>
           </li>
-
-          
-        
 
           <div id="popup" class="popup">
             <div class="popup-content" id="popup-content"></div>
@@ -71,7 +71,7 @@
       <input placeholder="Telefone:" type="tel" name="telefone" />
       <input placeholder="E-mail" type="email" name="email" />
       <textarea
-        placeholder="Digite seu problema aqui..."
+        placeholder="Olá! Como posso tornar seu dia ainda melhor?..."
         name="duvida"
       ></textarea>
       <button type="submit" class="botão-entre-em-contato" onclick="">

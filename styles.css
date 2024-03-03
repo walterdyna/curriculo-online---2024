@@ -13,6 +13,21 @@ body {
     min-height: 100vh;
 }
 
+.mascara-formulario {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+      109deg,
+      rgba(10, 12, 16, 0.99) 15%,
+      rgba(10, 12, 16, 0.7) 50%,
+      rgba(10, 12, 16, 0.99) 85%
+    );
+    transition: visiblity 1s ease-in-out;
+  }
+
 aside {
     background-color: #f1f1f1;
     padding: 20px;
@@ -57,7 +72,7 @@ header {
     color: white;
     padding: 20px;
     width: calc(100% - 200px); /* Calcula a largura restante após a barra lateral */
-}
+   }
 
 nav ul {
     list-style-type: none;
@@ -93,7 +108,7 @@ nav ul li:first-child a:before {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     overflow: auto;
-}
+   }
 
 .popup-content {
     background-color: white;
@@ -205,10 +220,12 @@ header a:hover {
     gap: 20px;
     flex-direction: column;
     position: fixed;
-    top: 50px;
-    left: 50px;
+    left: -300px;
+    top: 30%;
     padding: 20px;
     border-radius: 10px;
+    border-color: #18d80f;
+    transition: left 1s ease-in-out;
 }
 
 input {
@@ -217,6 +234,7 @@ input {
     border: 1px solid gray;
     padding-left: 5px;
     outline-color: #18d80f;
+    
 }
 
 textarea {
@@ -228,5 +246,65 @@ textarea {
     outline-color: #18d80f;
 }
 
+.botão-entre-em-contato{
+    background-color: #333;
+    border-color: #18d80f;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.botão-entre-em-contato:hover {
+    color:rgb(0, 255, 0);
+    font-size: 15px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    border-color: #1d05f7;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    overflow: auto;
+    transition: background-color 0.5s, opacity 0.5s;
+}
+
+.popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.popup-content.show {
+    opacity: 1;
+}
+
+
+
+/*  Inicial
+
+        top:30%;
+        left:-300px;
+
+    Final
+        Final: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+
+ */
 
 

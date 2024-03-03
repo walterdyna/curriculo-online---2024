@@ -134,6 +134,11 @@ function showInfo(category) {
 
     contentDiv.innerHTML = info;
     document.querySelector('.popup').style.display = 'block';
+
+    setTimeout(function () {
+        contentDiv.classList.add('show');
+    }, 500);
+
 }
 
 document.querySelector('.popup').addEventListener('click', function (event) {
@@ -148,5 +153,23 @@ function startShake() {
 
 function stopShake() {
     document.querySelector('.link-whatsapp').classList.remove('shake');
+}
+
+/* ---------------------------------- */
+
+const form = document.querySelector(".formulario-fale-conosco");
+const mascara = document.querySelector(".mascara-formulario");
+
+function mostarForm() {
+    form.style.left = "50%"
+    form.style.transform = "translateX(-50%)"
+    mascara.style.visibility = "visible"
+    header.style.visibility = "hidden"
+}
+
+function esconderForm() {
+    form.style.left = "-300px"
+    form.style.transform = "translateX(0)"
+    mascara.style.visibility = "hidden"
 }
 
