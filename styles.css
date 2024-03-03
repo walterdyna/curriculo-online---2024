@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
@@ -67,16 +73,49 @@ nav ul li:first-child a:before {
 
 .popup-content {
     background-color: white;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border-radius: 5px;
-    width: 70%;
+    width: 50%;
 }
 
-.popup-content h2 {
+.popup-content h1 {
     margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .popup-content p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.fraseDoDia {
+    margin-top: 30px;
+    margin: 15px;
+    text-align: center;
+    color: #f1f1f1;
+    background-color: #333;
+    border-radius: 30px;
+    padding: 7px;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+h1, h3, h4, p {
+    color: black;
+}
+
+a {
+    cursor: pointer;
+}
+
+.link-whatsapp {
+    height: 70px;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
 }

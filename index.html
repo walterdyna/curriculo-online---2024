@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curriculo de Walter Dyna</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<aside>
-    <img class="imgLogo" src="./img/Walter.jpg" alt="Foto de Walter Dyna">
-    <p>DESENVOLVEDOR | PROGRAMADOR | FRONT END | BACK END</p>
-</aside>
-<header>
-    <nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo de Walter Dyna</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside>
+      <img class="imgLogo" src="./img/Walter.jpg" alt="Foto de Walter Dyna" />
+      <p>DESENVOLVEDOR | PROGRAMADOR | FRONT END | BACK END</p>
+
+      <p class="fraseDoDia">
+        Até que o sol brilhe, acenda uma vela na escuridão
+      </p>
+    </aside>
+    <header>
+      <nav>
         <ul>
-            <li><a href="#" onclick="showInfo('Resumo')">Resumo</a></li>
-            <li><a href="#" onclick="showInfo('Experiencias')">Experiências</a></li>
-            <li><a href="#" onclick="showInfo('Formacao')">Formação</a></li>
-            <li><a href="#" onclick="showInfo('Cursos')">Cursos</a></li>
-            <li><a href="#" onclick="showInfo('Conhecimentos')">Conhecimentos</a></li>
+          <li><a href="#" onclick="showInfo('Resumo')">Resumo</a></li>
+          <li>
+            <a href="#" onclick="showInfo('Experiencias')">Experiências</a>
+          </li>
+          <li><a href="#" onclick="showInfo('Formacao')">Formação</a></li>
+          <li><a href="#" onclick="showInfo('Cursos')">Cursos</a></li>
+          <li>
+            <a href="#" onclick="showInfo('Conhecimentos')">Conhecimentos</a>
+          </li>
+          <div id="popup" class="popup">
+            <div class="popup-content" id="popup-content"></div>
+          </div>
+      
+          <a class="botãoWhas"
+            href="https://api.whatsapp.com/send?phone=5527999647264&text=Bem-vindo!%20Sua%20solu%C3%A7%C3%A3o%20em%20inform%C3%A1tica%20est%C3%A1%20aqui!%20%F0%9F%92%BB%E2%9C%A8%20Vamos%20tornar%20sua%20experi%C3%AAncia%20digital%20incr%C3%ADvel.%20%F0%9F%9A%80"
+          >
+            <img class="link-whatsapp" src="./img/whatsapp.png" alt="Whatsapp" />
+          </a>
         </ul>
-    </nav>
-</header>
-<div id="popup" class="popup">
-    <div class="popup-content" id="popup-content">
-    </div>
-</div>
-<script src="script.js"></script>
-</body>
+      </nav>
+    </header>
+
+
+    <script src="script.js"></script>
+  </body>
 </html>
