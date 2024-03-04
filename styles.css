@@ -30,14 +30,14 @@ body {
 
 aside {
     background-color: #f1f1f1;
-    padding: 20px;
-    width: 200px;
+    padding: 40px;
+    width: 250px;
 }
 
 .imgLogo {
     position: relative;
     width: 150px;
-    border: 2px dotted rgb(32, 9, 238);
+    border: 3px dotted rgb(32, 9, 238);
     /* Remova o overflow: hidden; para que a animação seja visível */
 }
 
@@ -45,7 +45,7 @@ aside {
     content: ''; /* Adiciona um conteúdo antes do elemento */
     position: absolute; /* Define a posição como absoluta */
     top: 50%; /* Posiciona no meio vertical */
-    left: -2px; /* Posiciona um pouco antes da borda esquerda */
+    left: 2px; /* Posiciona um pouco antes da borda esquerda */
     width: 4px; /* Define a largura do pontinho */
     height: 4px; /* Define a altura do pontinho */
     background-color: #333; /* Cor do pontinho */
@@ -65,6 +65,16 @@ aside {
 aside img {
     border-radius: 50%;
     margin-bottom: 20px;
+}
+
+aside h4{
+    margin: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+aside p{
+    margin: 5px;
 }
 
 header {
@@ -182,14 +192,14 @@ a {
 .link-github {
     height: 70px;
     position: fixed;
-    left: 20px;
+    left: 30px;
     bottom: 25px;
 }
 
 .link-linkendin {
     height: 50px;
     position: fixed;
-    left: 100px;
+    left: 150px;
     bottom: 40px;
 }
 
@@ -306,3 +316,36 @@ textarea {
         transform: translateX(-50%);
 
  */
+.sobre{
+    width: 900px;
+    background-color: #333;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: fixed;
+    left: 400px;
+    top: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: #18d80f;
+    transition: left 1s ease-in-out;
+}
+
+.sobre p {
+    color: #f1f1f1;
+    text-align: justify;
+}
+
+span{
+    color: #f1f1f1;
+    text-align: justify;
+}
+
+span {
+    transition: color 0.5s; /* Transição suave de cor */
+  }
+  
+  span:hover {
+    color: green; /* Cor que a palavra vai ficar ao passar o mouse */
+  }
+  
