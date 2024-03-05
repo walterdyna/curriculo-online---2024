@@ -350,6 +350,8 @@ span:hover {
   color: green; /* Cor que a palavra vai ficar ao passar o mouse */
 }
 
+/* -----------------------------MAXIMO 800PX---------------------------- */
+
 @media only screen and (max-width: 800px) {
   .sobre {
     width: 500px;
