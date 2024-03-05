@@ -1,309 +1,310 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
 }
 
 .mascara-formulario {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(
-      109deg,
-      rgba(10, 12, 16, 0.99) 15%,
-      rgba(10, 12, 16, 0.7) 50%,
-      rgba(10, 12, 16, 0.99) 85%
-    );
-    transition: visiblity 1s ease-in-out;
-  }
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    109deg,
+    rgba(10, 12, 16, 0.99) 15%,
+    rgba(10, 12, 16, 0.7) 50%,
+    rgba(10, 12, 16, 0.99) 85%
+  );
+  transition: visiblity 1s ease-in-out;
+}
 
 aside {
-    background-color: #f1f1f1;
-    padding: 40px;
-    width: 250px;
+  background-color: #f1f1f1;
+  padding: 40px;
+  width: 250px;
 }
 
 .imgLogo {
-    position: relative;
-    width: 150px;
-    border: 3px dotted rgb(32, 9, 238);
-    /* Remova o overflow: hidden; para que a animação seja visível */
+  position: relative;
+  width: 150px;
+  border: 3px dotted rgb(32, 9, 238);
+  /* Remova o overflow: hidden; para que a animação seja visível */
 }
 
 .imgLogo::before {
-    content: ''; /* Adiciona um conteúdo antes do elemento */
-    position: absolute; /* Define a posição como absoluta */
-    top: 50%; /* Posiciona no meio vertical */
-    left: 2px; /* Posiciona um pouco antes da borda esquerda */
-    width: 4px; /* Define a largura do pontinho */
-    height: 4px; /* Define a altura do pontinho */
-    background-color: #333; /* Cor do pontinho */
-    animation: moveDot 1s linear infinite; /* Define a animação */
+  content: ""; /* Adiciona um conteúdo antes do elemento */
+  position: absolute; /* Define a posição como absoluta */
+  top: 50%; /* Posiciona no meio vertical */
+  left: 2px; /* Posiciona um pouco antes da borda esquerda */
+  width: 4px; /* Define a largura do pontinho */
+  height: 4px; /* Define a altura do pontinho */
+  background-color: #333; /* Cor do pontinho */
+  animation: moveDot 1s linear infinite; /* Define a animação */
 }
 
 @keyframes moveDot {
-    0% {
-        transform: translateX(0); /* Começa na posição inicial */
-    }
-    100% {
-        transform: translateX(100%); /* Move até o final */
-    }
+  0% {
+    transform: translateX(0); /* Começa na posição inicial */
+  }
+  100% {
+    transform: translateX(100%); /* Move até o final */
+  }
 }
-
 
 aside img {
-    border-radius: 50%;
-    margin-bottom: 20px;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
-aside h4{
-    margin: 5px;
-    text-align: center;
-    margin-bottom: 15px;
+aside h4 {
+  margin: 5px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-aside p{
-    margin: 5px;
+aside p {
+  margin: 5px;
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    width: calc(100% - 200px); /* Calcula a largura restante após a barra lateral */
-   }
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  width: calc(
+    100% - 200px
+  ); /* Calcula a largura restante após a barra lateral */
+}
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    writing-mode: vertical-lr; /* Texto na vertical */
-    transform: rotate(-180deg); /* Rotaciona o texto para cima */
-    display: block;
-    padding: 5px;
+  color: white;
+  text-decoration: none;
+  writing-mode: vertical-lr; /* Texto na vertical */
+  transform: rotate(-180deg); /* Rotaciona o texto para cima */
+  display: block;
+  padding: 5px;
 }
 
 nav ul li:first-child a:before {
-    content: none; /* Remove a barra vertical do primeiro link */
+  content: none; /* Remove a barra vertical do primeiro link */
 }
 
 /* Estilo para o popup */
 .popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    overflow: auto;
-   }
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  overflow: auto;
+}
 
 .popup-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 50%;
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
 }
 
 .popup-content h1 {
-    margin-top: 0;
-    margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .popup-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .popup-content p {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .fraseDoDia {
-    margin-top: 30px;
-    margin: 15px;
-    text-align: center;
-    color: #f1f1f1;
-    background-color: #333;
-    border-radius: 30px;
-    padding: 7px;
-    font-size: 15px;
-    margin-top: 40px;
+  margin-top: 30px;
+  margin: 15px;
+  text-align: center;
+  color: #f1f1f1;
+  background-color: #333;
+  border-radius: 30px;
+  padding: 7px;
+  font-size: 15px;
+  margin-top: 40px;
 }
 
-h1, h3, h4, p {
-    color: black;
+h1,
+h3,
+h4,
+p {
+  color: black;
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .link-whatsapp {
-    height: 70px;
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
+  height: 70px;
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
 }
 
 .shake {
-    animation: shake 0.5s ease-in-out infinite;
+  animation: shake 0.5s ease-in-out infinite;
 }
 
 @keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-10px);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-    75% {
-        transform: translateX(-10px);
-    }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
 }
 
-
 .link-github {
-    height: 70px;
-    position: fixed;
-    left: 30px;
-    bottom: 25px;
+  height: 70px;
+  position: fixed;
+  left: 30px;
+  bottom: 25px;
 }
 
 .link-linkendin {
-    height: 50px;
-    position: fixed;
-    left: 150px;
-    bottom: 40px;
+  height: 50px;
+  position: fixed;
+  left: 150px;
+  bottom: 40px;
 }
 
 .protifolio {
-    text-decoration: none;
-    margin: 10px;
-    padding: 10px;
-    color: black;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+  color: black;
 }
 
 .protifolio2 {
-    text-decoration: none;
-    margin: 4px;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    color: black;
+  text-decoration: none;
+  margin: 4px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  color: black;
 }
 
 header a:hover {
-    color:rgb(0, 255, 0);
-    font-size: 20px;
-    transition: 0.5s ease-in-out;
+  color: rgb(0, 255, 0);
+  font-size: 20px;
+  transition: 0.5s ease-in-out;
 }
 
 .formulario-fale-conosco {
-    background-color: #333;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    position: fixed;
-    left: -300px;
-    top: 30%;
-    padding: 20px;
-    border-radius: 10px;
-    border-color: #18d80f;
-    transition: left 1s ease-in-out;
+  background-color: #333;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  position: fixed;
+  left: -300px;
+  top: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  border-color: #18d80f;
+  transition: left 1s ease-in-out;
 }
 
 input {
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    padding-left: 5px;
-    outline-color: #18d80f;
-    
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 5px;
+  outline-color: #18d80f;
 }
 
 textarea {
-    width: 270px;
-    height: 100px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    padding-left: 5px;
-    outline-color: #18d80f;
+  width: 270px;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 5px;
+  outline-color: #18d80f;
 }
 
-.botão-entre-em-contato{
-    background-color: #333;
-    border-color: #18d80f;
-    border-radius: 5px;
-    width: 200px;
-    height: 50px;
-    color: #f1f1f1;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
+.botão-entre-em-contato {
+  background-color: #333;
+  border-color: #18d80f;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
 }
 
 .botão-entre-em-contato:hover {
-    color:rgb(0, 255, 0);
-    font-size: 15px;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-    border-color: #1d05f7;
+  color: rgb(0, 255, 0);
+  font-size: 15px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  border-color: #1d05f7;
 }
 
 .popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    overflow: auto;
-    transition: background-color 0.5s, opacity 0.5s;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  overflow: auto;
+  transition: background-color 0.5s, opacity 0.5s;
 }
 
 .popup-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 50%;
-    opacity: 0;
-    transition: opacity 0.5s;
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .popup-content.show {
-    opacity: 1;
+  opacity: 1;
 }
-
-
 
 /*  Inicial
 
@@ -316,36 +317,220 @@ textarea {
         transform: translateX(-50%);
 
  */
-.sobre{
-    width: 900px;
-    background-color: #333;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    position: fixed;
-    left: 400px;
-    top: 30%;
-    padding: 20px;
-    border-radius: 10px;
-    border-color: #18d80f;
-    transition: left 1s ease-in-out;
+.sobre {
+  width: 900px;
+  background-color: #333;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  position: fixed;
+  left: 400px;
+  top: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  border-color: #18d80f;
+  transition: left 1s ease-in-out;
 }
 
 .sobre p {
-    color: #f1f1f1;
-    text-align: justify;
-}
-
-span{
-    color: #f1f1f1;
-    text-align: justify;
+  color: #f1f1f1;
+  text-align: justify;
 }
 
 span {
-    transition: color 0.5s; /* Transição suave de cor */
+  color: #f1f1f1;
+  text-align: justify;
+}
+
+span {
+  transition: color 0.5s; /* Transição suave de cor */
+}
+
+span:hover {
+  color: green; /* Cor que a palavra vai ficar ao passar o mouse */
+}
+
+@media only screen and (max-width: 800px) {
+  .sobre {
+    width: 500px;
+    position: fixed;
+    left: 280px;
+    top: 20%;
   }
-  
-  span:hover {
-    color: green; /* Cor que a palavra vai ficar ao passar o mouse */
+
+  header {
+    font-size: 15px;
   }
+
+  header a:hover {
+    color: rgb(0, 255, 0);
+    font-size: 15px;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .sobre {
+    width: 300px;
+    position: fixed;
+    left: 190px;
+    top: -2%;
+  }
+
+  header {
+    font-size: 15px;
+    height: 100%;
+  }
+
+  header a:hover {
+    color: rgb(0, 255, 0);
+    font-size: 15px;
+    transition: 0.5s ease-in-out;
+  }
+
+  aside {
+    width: 150px;
+    padding: 1px;
+  }
+
+  aside img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  aside h4 {
+    margin: 3px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  aside p {
+    margin: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .link-linkendin {
+    height: 50px;
+    position: fixed;
+    left: 100px;
+    bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .sobre {
+    width: 230px;
+    position: fixed;
+    left: 190px;
+    top: -2%;
+  }
+
+  .conhecimentos{
+    display: none;
+  }
+
+  header {
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
+  }
+
+  header a:hover {
+    color: rgb(0, 255, 0);
+    font-size: 15px;
+    transition: 0.5s ease-in-out;
+  }
+
+  aside {
+    width: 150px;
+    padding: 1px;
+  }
+
+  aside img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  aside h4 {
+    margin: 3px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  aside p {
+    margin: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .link-linkendin {
+    height: 50px;
+    position: fixed;
+    left: 100px;
+    bottom: 40px;
+    margin-top: -200px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+    .sobre {
+    display: none;
+    }
   
+    .conhecimentos{
+      display: none;
+    }
+  
+    header {
+      font-size: 15px;
+      height: 100%;
+      width: 100%;
+    }
+  
+    header a:hover {
+      color: rgb(0, 255, 0);
+      font-size: 15px;
+      transition: 0.5s ease-in-out;
+    }
+  
+    aside {
+      width: 150px;
+      height: 100%;
+      padding: 1px;
+    }
+  
+    aside img {
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+  
+    aside h4 {
+      margin: 3px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  
+    aside p {
+      margin: 10px;
+      font-size: 15px;
+    }
+  
+    .link-linkendin {
+      height: 50px;
+      position: fixed;
+      left: 100px;
+      bottom: 40px;
+      margin-top: -200px;
+    }
+
+    .popup-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        width: 80%;
+      }
+  
+  
+  }
