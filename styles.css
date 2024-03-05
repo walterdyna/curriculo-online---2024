@@ -420,6 +420,8 @@ span:hover {
   }
 }
 
+/* -----------------------------MAXIMO 430PX---------------------------- */
+
 @media only screen and (max-width: 430px) {
   .sobre {
     width: 230px;
