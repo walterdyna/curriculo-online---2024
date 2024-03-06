@@ -424,7 +424,7 @@ span:hover {
 
 /* -----------------------------MAXIMO 430PX---------------------------- */
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 430px) and (max-width: 421px) {
     .sobre {
       width: 230px;
       position: fixed;
@@ -481,7 +481,7 @@ span:hover {
 
 /* -----------------------------MAXIMO 430PX---------------------------- */
 
-@media only screen and (max-width: 412px) {
+@media only screen and (max-width: 420px) and (max-width: 400px) {
   .sobre {
     width: 210px;
     position: fixed;
