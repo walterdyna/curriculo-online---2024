@@ -368,7 +368,7 @@ span:hover {
     color: rgb(0, 255, 0);
     font-size: 15px;
     transition: 0.5s ease-in-out;
-  }
+    }
 }
 
 /* -----------------------------MAXIMO 500PX---------------------------- */
@@ -383,8 +383,7 @@ span:hover {
 
   header {
     font-size: 15px;
-    height: 100%;
-  }
+    }
 
   header a:hover {
     color: rgb(0, 255, 0);
@@ -426,7 +425,7 @@ span:hover {
 
 @media only screen and (max-width: 430px) and (max-width: 421px) {
     .sobre {
-      width: 70%;
+      width: 55%;
       position: fixed;
       left: 190px;
       top: -2%;
