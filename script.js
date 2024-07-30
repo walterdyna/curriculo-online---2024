@@ -6,7 +6,7 @@ function showInfo(category) {
         case 'Resumo':
             info = `
                 <h1>Resumo de Qualificação</h1>
-                <p>Profissional em fase de transição de carreira da área de Suporte- HelpDesk para a área de Desenvolvimento Web. Experiência em contribuir no desenvolvimento de projetos, garantindo o alinhamento com as últimas tendências e ferramentas do setor, tais como aplicações de tecnologias. Vivência na utilização de linguagens de programação como HTML, CSS e JavaScript, promovendo o desenvolvimento de projetos, aplicativos, sistemas web e softwares personalizados atuando como Back end e Front end. Habilidades em compreender as necessidades dos usuários e clientes, aplicando soluções eficientes.</p>
+                <p>Profissional em fase de transição de carreira da área de Suporte- HelpDesk para a área de Desenvolvimento. Experiência em contribuir no desenvolvimento de projetos, garantindo o alinhamento com as últimas tendências e ferramentas do setor, tais como aplicações de tecnologias. Vivência na utilização de linguagens de programação como HTML, CSS e JavaScript, React, Node.JS e TypeScript, promovendo o desenvolvimento de projetos, aplicativos, sistemas web e softwares personalizados atuando como Back end e Front end. Habilidades em compreender as necessidades dos usuários e clientes, aplicando soluções eficientes.</p>
             `;
             break;
         case 'Experiencias':
@@ -15,7 +15,7 @@ function showInfo(category) {
 
                 <h3>Grupo Telemed. – 11/2023 a atual.</h3>
                 <h4>Cargo: Analista de suporte TI.</h4>
-                <p>Função Exercida: Experiencia em ajuste no site da empresa, Integração novo produtos por API, Busca de novas tecnologias, criação do contrato online com interação com Gov, utilizando as tecnologias HTML, CSS e JavaScript.</p>
+                <p>Função Exercida: Experiencia em ajuste no site da empresa, Integração novo produtos por API, Busca de novas tecnologias, criação do contrato online com interação com Gov, utilizando as tecnologias HTML, CSS e JavaScript, React, Node.JS e TypeScript.</p>
                
 
                 <!------------------------------------------------ -->
@@ -82,7 +82,7 @@ function showInfo(category) {
         case 'Formacao':
             info = `
                 <h1>Formação Acadêmica</h1>
-                <p>Programação em Desenvolvimento Web pela DevClub, 2022/23.</p>
+                <p>Programação em Desenvolvimento pela DevClub, 2022/23.</p>
                 <p>Médio Técnico em Informática – Concluído.</p>
                 <p>Engenharia da Computação – Início 03/2022 - Cursando</p>
             `;
