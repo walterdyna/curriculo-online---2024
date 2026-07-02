@@ -1,108 +1,741 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curriculo de Walter Dyna</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="mascara-formulario" onclick="esconderForm()"></div>
-    <aside>
-      <img class="imgLogo" src="./img/Walter.jpg" alt="Foto de Walter Dyna" />
-      <h4>Walter Alexander Bastos Dyna.</h4>
-      <p>DESENVOLVEDOR</p> <p> PROGRAMADOR</p> <p> FRONT END</p> <p> BACK END</p>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walter Dyna — Desenvolvedor Full Stack & Analista Sênior</title>
+<meta name="description" content="Desenvolvedor Full Stack e Analista de Sistemas Sênior com 20 anos de experiência em TI. Node.js, React, REST API, ERP, Infraestrutura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 2px; }
 
-      <p class="fraseDoDia">
-        Até que o sol brilhe, acenda uma vela na escuridão.
-      </p>
-    </aside>
-    <header>
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 1rem; color: var(--accent); text-decoration: none; }
+  .nav-logo span { color: var(--accent2); }
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-family: var(--mono); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
 
-      <nav>
-        <ul>
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2rem 2rem; position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(0,229,255,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(124,58,237,0.06) 0%, transparent 70%);
+  }
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(42,42,58,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(42,42,58,0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--accent); }
+  .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); margin-right: 0.25rem; animation: pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.5)} 50%{box-shadow:0 0 0 6px rgba(16,185,129,0)} }
+  .hero-name { font-size: clamp(2.5rem,6vw,5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .hero-name .first { color: var(--text); }
+  .hero-name .last { color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+  .hero-title { font-family: var(--mono); font-size: clamp(1rem,2.5vw,1.3rem); color: var(--muted); margin-bottom: 1.5rem; min-height: 2em; }
+  .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50%{opacity:0} }
+  .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 540px; margin-bottom: 2.5rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .tag { font-family: var(--mono); font-size: 0.75rem; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); transition: all 0.2s; }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-          <li><a href="#" onclick="showInfo('Resumo')">Resumo</a></li>
-          <li>
-            <a href="#" onclick="showInfo('Experiencias')">Experiências</a>
-          </li>
-          <li><a href="#" onclick="showInfo('Formacao')">Formação</a></li>
-          <li><a href="#" onclick="showInfo('Cursos')">Cursos</a></li>
-          <li>
-            <a href="#" onclick="showInfo('Conhecimentos')">Conhecimentos</a>
-          </li>
-          <li>
-            <a class="#" onclick="showInfo('Portfolio')">Portfolio</a>
-          </li>
-          <li>
-            <a class="Contato" onclick="mostarForm()">Contato</a>
-          </li>
+  /* BUTTONS */
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; font-family: var(--sans); }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-primary:hover { background: #00c8e0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.25); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .btn-whatsapp { background: #25d366; color: #000; }
+  .btn-whatsapp:hover { background: #20bc5a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.25); }
+  .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
 
-          <div class="sobre"> 
-            <p>
-                <span class="word">Olá!</span> <span class="word">Sou</span> <span class="word">um</span> <span class="word">entusiasta</span> <span class="word">em</span> <span class="word">transição</span> <span class="word">de</span> <span class="word">carreira</span> <span class="word">da</span> <span class="word">área</span> <span class="word">de</span> <span class="word">Suporte-HelpDesk</span> <span class="word">para</span> <span class="word">o</span> <span class="word">mundo</span> <span class="word">do</span> <span class="word">Desenvolvimento.</span> <span class="word">Minha</span> <span class="word">paixão</span> <span class="word">é</span> <span class="word">criar</span> <span class="word">projetos</span> <span class="word">que</span> <span class="word">não</span> <span class="word">só</span> <span class="word">seguem</span> <span class="word">as</span> <span class="word">últimas</span> <span class="word">tendências</span> <span class="word">e</span> <span class="word">ferramentas,</span> <span class="word">mas</span> <span class="word">também</span> <span class="word">encantam</span> <span class="word">os</span> <span class="word">usuários.</span>
-              </p>
-              
-              <p>
-                <span class="word">Com</span> <span class="word">habilidades</span> <span class="word">em</span> <span class="word">HTML,</span> <span class="word">CSS</span>, <span class="word">e</span> <span class="word">JavaScript,</span> <span class="word">React,</span> <span class="word">Node.JS,</span> <span class="word">TypeScript,</span> <span class="word">navego</span> <span class="word">com</span> <span class="word">facilidade</span> <span class="word">entre</span> <span class="word">o</span> <span class="word">Back</span> <span class="word">end</span> <span class="word">e</span> <span class="word">o</span> <span class="word">Front</span> <span class="word">end,</span> <span class="word">sempre</span> <span class="word">buscando</span> <span class="word">soluções</span> <span class="word">inovadoras</span> <span class="word">para</span> <span class="word">atender</span> <span class="word">às</span> <span class="word">necessidades</span> <span class="word">dos</span> <span class="word">clientes.</span> <span class="word">Tenho</span> <span class="word">experiência</span> <span class="word">em</span> <span class="word">ajustes</span> <span class="word">de</span> <span class="word">sites,</span> <span class="word">integração</span> <span class="word">de</span> <span class="word">novos</span> <span class="word">produtos</span> <span class="word">por</span> <span class="word">API</span> <span class="word">e</span> <span class="word">sou</span> <span class="word">um</span> <span class="word">explorador</span> <span class="word">incansável</span> <span class="word">de</span> <span class="word">novas</span> <span class="word">tecnologias.</span>
-              </p>
-              
-              <p>
-                <span class="word">Além</span> <span class="word">disso,</span> <span class="word">sou</span> <span class="word">especialista</span> <span class="word">em</span> <span class="word">manutenção</span> <span class="word">e</span> <span class="word">atualização</span> <span class="word">de</span> <span class="word">parques</span> <span class="word">tecnológicos,</span> <span class="word">implementação</span> <span class="word">de</span> <span class="word">soluções</span> <span class="word">criativas</span> <span class="word">e</span> <span class="word">gestão</span> <span class="word">de</span> <span class="word">projetos</span> <span class="word">de</span> <span class="word">ponta</span> <span class="word">a</span> <span class="word">ponta.</span> <span class="word">Atualmente,</span> <span class="word">estou</span> <span class="word">me</span> <span class="word">aprimorando</span> <span class="word">na</span> <span class="word">Engenharia</span> <span class="word">da</span> <span class="word">Computação,</span> <span class="word">sempre</span> <span class="word">em</span> <span class="word">busca</span> <span class="word">de</span> <span class="word">conhecimento</span> <span class="word">e</span> <span class="word">novos</span> <span class="word">desafios.</span>
-              </p>
-              
-              <p class="conhecimentos">
-                <span class="word">Meus</span> <span class="word">conhecimentos</span> <span class="word">incluem</span> <span class="word">bancos</span> <span class="word">de</span> <span class="word">dados</span> <span class="word">como</span> <span class="word">MySQL</span> <span class="word">e</span> <span class="word">Firebird,</span> <span class="word">sistemas</span> <span class="word">operacionais</span> <span class="word">Windows</span> <span class="word">e</span> <span class="word">Linux,</span> <span class="word">e</span> <span class="word">sou</span> <span class="word">adepto</span> <span class="word">das</span> <span class="word">metodologias</span> <span class="word">ágeis,</span> <span class="word">principalmente</span> <span class="word">SCRUM.</span> <span class="word">Estou</span> <span class="word">pronto</span> <span class="word">para</span> <span class="word">contribuir</span> <span class="word">com</span> <span class="word">sua</span> <span class="word">equipe</span> <span class="word">e</span> <span class="word">transformar</span> <span class="word">ideias</span> <span class="word">em</span> <span class="word">realidade</span> <span class="word">digital!</span>
-              </p>
-                  
-        </div>
+  /* STATS */
+  .stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2rem; }
+  .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 2rem; text-align: center; }
+  .stat-num { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: var(--accent); display: block; }
+  .stat-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
 
-          <div id="popup" class="popup">
-            <div class="popup-content" id="popup-content"></div>
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+  .section-num { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
+  .section-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* SOBRE */
+  .sobre-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .foto-container { position: relative; width: 200px; }
+  .foto-ring { position: absolute; inset: -4px; border-radius: 16px; background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), var(--accent)); background-size: 300% 300%; animation: ring-spin 4s linear infinite; z-index: 0; }
+  @keyframes ring-spin { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  .foto-inner { position: relative; z-index: 1; width: 200px; height: 200px; border-radius: 14px; overflow: hidden; background: var(--surface2); border: 3px solid var(--bg); }
+  .foto-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .foto-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--muted); font-family: var(--mono); font-size: 0.7rem; text-align: center; }
+  .foto-placeholder span { font-size: 3rem; }
+  .foto-badge { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); background: var(--accent3); color: #000; font-family: var(--mono); font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 20px; white-space: nowrap; z-index: 2; box-shadow: 0 4px 12px rgba(16,185,129,0.4); }
+  .sobre-text { padding-top: 0.5rem; }
+  .sobre-headline { font-size: 1.5rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .sobre-headline em { font-style: normal; color: var(--accent); }
+  .sobre-paragraph { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+  .sobre-paragraph strong { color: var(--text); font-weight: 600; }
+  .sobre-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+  .badge { display: flex; align-items: center; gap: 0.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.9rem; font-size: 0.8rem; transition: all 0.2s; }
+  .badge:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .badge-icon { font-size: 1rem; }
+  .badge-text { color: var(--text); font-weight: 600; }
+  .badge-sub { color: var(--muted); font-size: 0.72rem; font-family: var(--mono); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.5rem; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.3s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,229,255,0.08); }
+  .skill-card-title { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag { font-family: var(--mono); font-size: 0.75rem; padding: 0.25rem 0.6rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; color: var(--text); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: all 0.3s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,229,255,0.08); }
+  .project-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .project-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .project-company { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.75rem; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.75rem; }
+  .project-result { font-family: var(--mono); font-size: 0.78rem; color: var(--accent3); padding: 0.4rem 0.75rem; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 6px; margin-bottom: 0.75rem; display: inline-block; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; padding-bottom: 2.5rem; opacity: 0; transform: translateX(-20px); transition: all 0.5s; }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot { position: absolute; left: -2.4rem; top: 0.3rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 3px rgba(0,229,255,0.2); }
+  .timeline-dot.current { background: var(--accent3); box-shadow: 0 0 0 3px rgba(16,185,129,0.3); animation: pulse-dot 2s ease-in-out infinite; }
+  .timeline-period { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 0.3rem; }
+  .timeline-role { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .timeline-company { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); margin-bottom: 0.6rem; }
+  .timeline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; max-width: 620px; }
+  .timeline-highlights { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .highlight-pill { font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border: 1px solid rgba(0,229,255,0.2); border-radius: 20px; color: var(--accent); background: rgba(0,229,255,0.05); }
+
+  /* DEPOIMENTOS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+  .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: all 0.3s; position: relative; }
+  .testimonial-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,58,237,0.1); }
+  .testimonial-stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.875rem; color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+  .testimonial-text em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .testimonial-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--accent2), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; font-family: var(--mono); }
+  .testimonial-name { font-weight: 700; font-size: 0.875rem; color: var(--text); }
+  .testimonial-role { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-top: 0.1rem; }
+  .testimonial-relation { font-family: var(--mono); font-size: 0.68rem; color: var(--accent3); margin-top: 0.15rem; }
+  .linkedin-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--mono); font-size: 0.65rem; color: #0a66c2; background: rgba(10,102,194,0.1); border: 1px solid rgba(10,102,194,0.2); border-radius: 4px; padding: 0.2rem 0.5rem; margin-bottom: 0.75rem; }
+
+  /* FORMAÇÃO */
+  .formacao-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; }
+  .formacao-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.3s; display: flex; gap: 1rem; align-items: flex-start; }
+  .formacao-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+  .formacao-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .formacao-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .formacao-inst { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.2rem; }
+  .formacao-period { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+  .formacao-status { display: inline-block; margin-top: 0.4rem; font-family: var(--mono); font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 20px; }
+  .status-cursando { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+  .status-concluido { background: rgba(16,185,129,0.1); color: var(--accent3); border: 1px solid rgba(16,185,129,0.2); }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: 1.5rem; }
+  .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: all 0.3s; text-align: center; }
+  .service-card:hover { border-color: var(--accent2); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,58,237,0.1); }
+  .service-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+  .service-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .service-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
+
+  /* CONTACT */
+  #contato { background: var(--surface); }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 1rem; margin-top: 2rem; }
+  .contact-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; text-align: center; text-decoration: none; color: var(--text); transition: all 0.3s; }
+  .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .contact-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .contact-card-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); display: block; margin-bottom: 0.25rem; }
+  .contact-card-value { font-size: 0.85rem; font-weight: 600; }
+  .visitors-bar { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .visitors-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+  footer span { color: var(--accent); }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    .hero-cta { flex-direction: column; }
+    .btn { justify-content: center; }
+    .sobre-grid { grid-template-columns: 1fr; }
+    .foto-container { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">walter<span>.dyna</span>()</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">sobre</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projetos">projetos</a></li>
+    <li><a href="#experiencia">experiência</a></li>
+    <li><a href="#formacao">formação</a></li>
+    <li><a href="#depoimentos">depoimentos</a></li>
+    <li><a href="#servicos">serviços</a></li>
+    <li><a href="#contato">contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="live-dot"></span>disponível para projetos remotos</div>
+    <h1 class="hero-name">
+      <div class="first">Walter</div>
+      <div class="last">Dyna</div>
+    </h1>
+    <div class="hero-title"><span id="typed-text"></span><span class="cursor"></span></div>
+    <p class="hero-desc">20 anos transformando problemas reais em sistemas que funcionam. Do ERP fiscal ao Full Stack — entrego soluções que impactam o negócio.</p>
+    <div class="hero-tags">
+      <span class="tag">Node.js</span><span class="tag">React.js</span><span class="tag">REST API</span>
+      <span class="tag">MongoDB</span><span class="tag">VMware</span><span class="tag">ERP/Fiscal</span><span class="tag">Infraestrutura</span>
+    </div>
+    <div class="hero-cta">
+      <a href="https://wa.me/5527999647264" class="btn btn-whatsapp" target="_blank">💬 WhatsApp</a>
+      <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+      <a href="assets/curriculo-walter-dyna.pdf" class="btn btn-ghost" download>⬇ Baixar Currículo</a>
+      <a href="#servicos" class="btn btn-outline">Contratar serviço</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><span class="stat-num" data-target="15">0</span><span class="stat-label">anos em TI</span></div>
+    <div><span class="stat-num" data-target="13000">0</span><span class="stat-label">clientes atendidos</span></div>
+    <div><span class="stat-num" data-target="500">0</span><span class="stat-label">cadastros via API</span></div>
+    <div><span class="stat-num" data-target="12">0</span><span class="stat-label">recomendações LinkedIn</span></div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Sobre mim</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="sobre-grid fade-in">
+      <div>
+        <div class="foto-container">
+          <div class="foto-ring"></div>
+          <div class="foto-inner">
+            <!-- Troque por: <img src="assets/foto.jpg" alt="Walter Dyna"> -->
+            <div class="foto-placeholder"><span>📷</span><span>assets/foto.jpg</span></div>
           </div>
-      
-          <a class="botãoWhas" onmouseover="startShake()" onmouseout="stopShake()"
-            href="https://api.whatsapp.com/send?phone=5527999647264&text=Bem-vindo!%20Sua%20solu%C3%A7%C3%A3o%20em%20inform%C3%A1tica%20est%C3%A1%20aqui!%20%F0%9F%92%BB%E2%9C%A8%20Vamos%20tornar%20sua%20experi%C3%AAncia%20digital%20incr%C3%ADvel.%20%F0%9F%9A%80"
-          >
-            <img class="link-whatsapp" src="./img/whatsapp.png" alt="Whatsapp" />
-          </a>
+          <div class="foto-badge">✦ Disponível agora</div>
+        </div>
+      </div>
+      <div class="sobre-text">
+        <h3 class="sobre-headline">
+          Resolvo o que outros não conseguem.<br>
+          Entrego resultado, <em>não desculpa.</em>
+        </h3>
+        <p class="sobre-paragraph">
+          Sou Desenvolvedor Full Stack e Analista de Sistemas Sênior com <strong>20 anos de TI</strong> — não é tempo de sobrevivência, é tempo de entrega real. Já recuperei banco de dados corrompido no meio de uma crise, substituí servidor queimado de emergência e reativei sistemas paralisados com a operação de centenas de clientes dependendo do meu teclado.
+        </p>
+        <p class="sobre-paragraph">
+          O que me diferencia é uma combinação rara num mercado que separa tudo: <strong>desenvolvimento web</strong> (Node.js, React, REST API, MongoDB), <strong>infraestrutura completa</strong> (VMware, Windows Server, redes, segurança) e <strong>domínio fiscal/ERP</strong> (SPED, NFCe, SEFAZ, SQL) — tudo em um profissional só. Faço acontecer do começo ao fim, com visão de negócio e técnica na mesma medida.
+        </p>
+        <p class="sobre-paragraph">
+          Cursando <strong>Engenharia da Computação</strong> na Multivix (9º período). Baseado em Vila Velha/ES. Disponível para trabalho remoto ou presencial no ES.
+        </p>
+        <div class="sobre-badges">
+          <div class="badge"><span class="badge-icon">🏆</span><div><div class="badge-text">11 anos</div><div class="badge-sub">TronSoft — referência técnica</div></div></div>
+          <div class="badge"><span class="badge-icon">⚡</span><div><div class="badge-text">3 projetos</div><div class="badge-sub">entregues em 5 meses</div></div></div>
+          <div class="badge"><span class="badge-icon">👥</span><div><div class="badge-text">13.000+</div><div class="badge-sub">clientes atendidos</div></div></div>
+          <div class="badge"><span class="badge-icon">⭐</span><div><div class="badge-text">12 recomendações</div><div class="badge-sub">LinkedIn verificadas</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <a class="botaogithub"
-          href="https://github.com/walterdyna"
-        >
-          <img class="link-github" src="./img/github.png" alt="github" />
-        </a>
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in"><div class="skill-card-title">⚡ Backend</div><div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">REST API</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">MongoDB</span></div></div>
+      <div class="skill-card fade-in"><div class="skill-card-title">🎨 Frontend</div><div class="skill-tags"><span class="skill-tag">React.js</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span></div></div>
+      <div class="skill-card fade-in"><div class="skill-card-title">🖥️ Infraestrutura</div><div class="skill-tags"><span class="skill-tag">VMware</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Redes</span><span class="skill-tag">Segurança de TI</span></div></div>
+      <div class="skill-card fade-in"><div class="skill-card-title">🧾 ERP & Fiscal</div><div class="skill-tags"><span class="skill-tag">ERP</span><span class="skill-tag">SPED Fiscal</span><span class="skill-tag">NFCe</span><span class="skill-tag">XML/SEFAZ</span><span class="skill-tag">Sintegra</span></div></div>
+      <div class="skill-card fade-in"><div class="skill-card-title">👥 Gestão & Liderança</div><div class="skill-tags"><span class="skill-tag">Liderança de Equipe</span><span class="skill-tag">Helpdesk N3</span><span class="skill-tag">Gestão de TI</span><span class="skill-tag">Implantação</span></div></div>
+      <div class="skill-card fade-in"><div class="skill-card-title">🔧 Ferramentas</div><div class="skill-tags"><span class="skill-tag">Git / GitHub</span><span class="skill-tag">Office Avançado</span><span class="skill-tag">Scrum</span></div></div>
+    </div>
+  </div>
+</section>
 
-        <a class="botaolinkendin"
-        href="https://www.linkedin.com/in/walterdyna/"
-      >
-        <img class="link-linkendin" src="./img/linkendin.png" alt="linkendin" />
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projetos</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card fade-in">
+        <div class="project-icon">🏥</div>
+        <div class="project-name">Contratos Digitais</div>
+        <div class="project-company">Grupo TeleMed</div>
+        <div class="project-desc">Sistema com validação GOV para startup de saúde, processando 50+ contratos e eliminando processo 100% manual.</div>
+        <div class="project-result">↓ 30% no tempo burocrático</div>
+        <div class="project-stack"><span class="skill-tag">Node.js</span><span class="skill-tag">JavaScript</span><span class="skill-tag">REST API</span></div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-icon">🔗</div>
+        <div class="project-name">Integração ePharna via API</div>
+        <div class="project-company">Grupo TeleMed</div>
+        <div class="project-desc">Integração de 500+ cadastros com plataforma externa via REST API, eliminando retrabalho manual completo da equipe.</div>
+        <div class="project-result">500+ cadastros automatizados</div>
+        <div class="project-stack"><span class="skill-tag">Node.js</span><span class="skill-tag">REST API</span><span class="skill-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-icon">🦀</div>
+        <div class="project-name">Cardápio Digital + TI</div>
+        <div class="project-company">Caranguejo do Assis</div>
+        <div class="project-desc">Transformação digital de operação com 80+ colaboradores, cardápio responsivo integrado ao backend e estações de pedidos.</div>
+        <div class="project-result">80 funcionários treinados, zero gargalo</div>
+        <div class="project-stack"><span class="skill-tag">React.js</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML5/CSS3</span><span class="skill-tag">VMware</span></div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-icon">☁️</div>
+        <div class="project-name">Reestruturação de Infra</div>
+        <div class="project-company">Açaí e Cia</div>
+        <div class="project-desc">Implantação de 2 servidores dedicados com VMware, renovação do parque tecnológico e configuração de rede segura do zero.</div>
+        <div class="project-result">100% de estabilidade operacional</div>
+        <div class="project-stack"><span class="skill-tag">VMware</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Redes</span></div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-icon">🏫</div>
+        <div class="project-name">Site Institucional</div>
+        <div class="project-company">EmDoReMi</div>
+        <div class="project-desc">Desenvolvimento completo do site da escola de música, do layout à entrega, com design responsivo e presença digital do zero.</div>
+        <div class="project-result">Presença digital do zero</div>
+        <div class="project-stack"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Experiência</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot current"></div>
+        <div class="timeline-period">ago/2023 — atual</div>
+        <div class="timeline-role">Gestor de TI & Consultor de Infraestrutura</div>
+        <div class="timeline-company">Açaí e Cia</div>
+        <div class="timeline-desc">Reestruturação completa da infraestrutura: 2 servidores dedicados VMware implantados do zero, rede segura configurada, vulnerabilidades eliminadas. Operação que rodava de forma instável passou a funcionar com 100% de estabilidade.</div>
+        <div class="timeline-highlights">
+          <span class="highlight-pill">VMware</span><span class="highlight-pill">Windows Server</span><span class="highlight-pill">Redes</span><span class="highlight-pill">100% estabilidade</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">jun/2022 — fev/2026</div>
+        <div class="timeline-role">Gestor de TI & Desenvolvedor Full Stack</div>
+        <div class="timeline-company">Caranguejo do Assis</div>
+        <div class="timeline-desc">Liderou transformação digital completa de operação com 80+ colaboradores. Desenvolveu cardápio digital responsivo com integração ao backend, implantou estações de pedidos eliminando gargalos entre salão, caixa e cozinha, e treinou toda a equipe nos novos sistemas.</div>
+        <div class="timeline-highlights">
+          <span class="highlight-pill">React.js</span><span class="highlight-pill">JavaScript</span><span class="highlight-pill">VMware</span><span class="highlight-pill">80+ funcionários</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">nov/2023 — mar/2024</div>
+        <div class="timeline-role">Analista de Suporte TI & Desenvolvedor Full Stack</div>
+        <div class="timeline-company">Grupo TeleMed</div>
+        <div class="timeline-desc">Entregou 3 soluções críticas em apenas 5 meses: sistema de contratos digitais com validação GOV (−30% burocracia), integração de 500+ cadastros via REST API com plataforma ePharna, e otimização do site institucional.</div>
+        <div class="timeline-highlights">
+          <span class="highlight-pill">Node.js</span><span class="highlight-pill">REST API</span><span class="highlight-pill">3 entregas em 5 meses</span><span class="highlight-pill">−30% burocracia</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">abr/2022 — jul/2022</div>
+        <div class="timeline-role">Analista de Suporte & Implantação de ERP</div>
+        <div class="timeline-company">AMZ Soluções</div>
+        <div class="timeline-desc">Suporte a base de 13.000 clientes ativos com média de 60 atendimentos diários. Treinamento de equipes de 6 a 12 colaboradores por implantação. Resolução de ocorrências críticas fiscais: NFCe, XML, SEFAZ, banco de dados. Regime de sobreaviso 24h.</div>
+        <div class="timeline-highlights">
+          <span class="highlight-pill">ERP</span><span class="highlight-pill">SPED Fiscal</span><span class="highlight-pill">NFCe/SEFAZ</span><span class="highlight-pill">13.000 clientes</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">dez/2010 — abr/2022 · <strong style="color:var(--accent)">11 anos</strong></div>
+        <div class="timeline-role">Analista de Sistemas Sênior & Líder de Implantação</div>
+        <div class="timeline-company">TronSoft Soluções</div>
+        <div class="timeline-desc">
+          Progressão de Técnico Júnior a Analista Sênior em 11 anos — referência técnica absoluta da empresa. Coordenou equipe de 9 pessoas com até 6 implantações simultâneas diárias em todo o Brasil. Carteira de 60 a 110 clientes/dia em Helpdesk Nível III. Momentos de crise que definiram a carreira: recuperou banco de dados corrompido que travou a operação de clientes, substituiu servidor queimado emergencialmente e reativou sistemas paralisados. Sobreaviso 24h por 11 anos consecutivos.
+        </div>
+        <div class="timeline-highlights">
+          <span class="highlight-pill">11 anos de referência</span><span class="highlight-pill">9 pessoas lideradas</span><span class="highlight-pill">6 implantações/dia</span><span class="highlight-pill">Helpdesk N3</span><span class="highlight-pill">SPED/NFCe/SEFAZ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Formação</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="formacao-grid">
+      <div class="formacao-card fade-in">
+        <div class="formacao-icon">🎓</div>
+        <div>
+          <div class="formacao-title">Engenharia da Computação</div>
+          <div class="formacao-inst">Multivix</div>
+          <div class="formacao-period">mar/2022 — dez/2026</div>
+          <span class="formacao-status status-cursando">9º período</span>
+        </div>
+      </div>
+      <div class="formacao-card fade-in">
+        <div class="formacao-icon">💻</div>
+        <div>
+          <div class="formacao-title">Programador Full Stack</div>
+          <div class="formacao-inst">DevClub</div>
+          <div class="formacao-period">jan/2022 — dez/2024</div>
+          <span class="formacao-status status-concluido">concluído</span>
+        </div>
+      </div>
+      <div class="formacao-card fade-in">
+        <div class="formacao-icon">🌐</div>
+        <div>
+          <div class="formacao-title">Desenvolvimento Web</div>
+          <div class="formacao-inst">DevClub</div>
+          <div class="formacao-period">jan/2022 — dez/2024</div>
+          <span class="formacao-status status-concluido">concluído</span>
+        </div>
+      </div>
+      <div class="formacao-card fade-in">
+        <div class="formacao-icon">☕</div>
+        <div>
+          <div class="formacao-title">Programação Java</div>
+          <div class="formacao-inst">AlgaWorks</div>
+          <div class="formacao-period">2022</div>
+          <span class="formacao-status status-concluido">concluído</span>
+        </div>
+      </div>
+      <div class="formacao-card fade-in">
+        <div class="formacao-icon">🖥️</div>
+        <div>
+          <div class="formacao-title">Técnico em Informática</div>
+          <div class="formacao-inst">Contec</div>
+          <div class="formacao-period">jan/2000 — jan/2003</div>
+          <span class="formacao-status status-concluido">concluído</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">06</span>
+      <h2 class="section-title">O que dizem sobre mim</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "Tive a oportunidade de conhecer o Walter na DevClub e pude ver de perto sua dedicação, profissionalismo e <em>profundo conhecimento em desenvolvimento web</em>. Ele é proativo, comprometido e sempre busca soluções eficientes — um profissional que recomendo com confiança."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CA</div>
+          <div>
+            <div class="testimonial-name">Cauã Pereira Amim</div>
+            <div class="testimonial-role">Desenvolvedor Full Stack Jr · JavaScript, React, Node</div>
+            <div class="testimonial-relation">estudaram juntos · ago/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "Domínio total em HTML, CSS e JavaScript. <em>Um cara que supera as expectativas</em> — desenvolve com genialidade, criatividade e organização. É uma honra poder recomendar esse cara incrível que vai fazer a diferença na sua equipe."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AL</div>
+          <div>
+            <div class="testimonial-name">Andre Luis</div>
+            <div class="testimonial-role">Desenvolvedor Front End · HTML, CSS, JS, React</div>
+            <div class="testimonial-relation">estudaram juntos · ago/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "<em>Se eu tivesse uma empresa, eu o contrataria na hora.</em> Walter é genial e criativo — o que ele faz vai além das expectativas. Como pessoa é humilde, se expressa muito bem e está sempre disposto a ajudar. Um profissional dedicado e criativo no seu time só tem a ganhar."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">Jardel Messias</div>
+            <div class="testimonial-role">Dev Full Stack · React, Flutter, Python, Node.js</div>
+            <div class="testimonial-relation">estudaram juntos · jul/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "Tive o prazer de trabalhar com o Walter na Tronsoft, onde ele foi responsável pelo meu treinamento. <em>Profissionalismo excepcional</em>, alto desempenho entre os colegas, sempre pontual, interessado e um verdadeiro líder dentro da equipe. Espero ter a oportunidade de trabalhar com ele novamente."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">HC</div>
+          <div>
+            <div class="testimonial-name">Hiago Camargo Anhaia</div>
+            <div class="testimonial-role">Analista de Segurança da Informação Pleno</div>
+            <div class="testimonial-relation">trabalharam juntos na TronSoft · fev/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "Walter é um profissional excepcional. Sua capacidade de <em>resolver problemas complexos de maneira inovadora e eficiente</em> é realmente impressionante. Sua paixão pela tecnologia é evidente em tudo que faz — tenho certeza de que trará contribuição significativa para qualquer equipe."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">BA</div>
+          <div>
+            <div class="testimonial-name">Bruno de Alencar</div>
+            <div class="testimonial-role">Estudante de Engenharia da Computação · Multivix</div>
+            <div class="testimonial-relation">estudaram juntos · jul/2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="linkedin-badge">🔗 LinkedIn · verificado</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          "Walter é um profissional muito qualificado — foi meu supervisor e <em>me direcionou de forma eficiente, realizando um grande upgrade na minha vida profissional.</em> Recomendo pelo carisma, pelo ensino e pelo profissionalismo. Sucesso sempre! 🚀"
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RD</div>
+          <div>
+            <div class="testimonial-name">Renata Demuner</div>
+            <div class="testimonial-role">Técnica de Infraestrutura III · NOC, Redes, Help Desk</div>
+            <div class="testimonial-relation">supervisionou na TronSoft · jun/2022</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="fade-in" style="margin-top:1.5rem; font-family: var(--mono); font-size:0.72rem; color: var(--muted); text-align:center;">
+      ✓ Todos os depoimentos são reais e públicos no <a href="https://www.linkedin.com/in/walterdyna/" target="_blank" style="color:var(--accent); text-decoration:none;">LinkedIn de Walter Dyna</a>
+    </p>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Serviços Freelance</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🌐</div>
+        <div class="service-name">Desenvolvimento Web</div>
+        <div class="service-desc">Sites, landing pages e sistemas web com HTML5, CSS3, JavaScript e React. Do layout à entrega.</div>
+        <a href="https://wa.me/5527999647264?text=Olá Walter, tenho interesse em Desenvolvimento Web!" class="btn btn-whatsapp" target="_blank" style="font-size:0.82rem;padding:0.55rem 1rem;">💬 Orçamento</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">⚙️</div>
+        <div class="service-name">APIs & Integrações</div>
+        <div class="service-desc">APIs REST com Node.js e integração entre sistemas e plataformas externas.</div>
+        <a href="https://wa.me/5527999647264?text=Olá Walter, tenho interesse em APIs e Integrações!" class="btn btn-whatsapp" target="_blank" style="font-size:0.82rem;padding:0.55rem 1rem;">💬 Orçamento</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🖥️</div>
+        <div class="service-name">Infraestrutura de TI</div>
+        <div class="service-desc">Servidores VMware, redes seguras, parque tecnológico e gestão de TI para empresas.</div>
+        <a href="https://wa.me/5527999647264?text=Olá Walter, tenho interesse em Infraestrutura de TI!" class="btn btn-whatsapp" target="_blank" style="font-size:0.82rem;padding:0.55rem 1rem;">💬 Orçamento</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🧾</div>
+        <div class="service-name">Consultoria ERP & Fiscal</div>
+        <div class="service-desc">Implantação de ERP, configuração fiscal (SPED, NFCe, SEFAZ) e resolução de rejeições.</div>
+        <a href="https://wa.me/5527999647264?text=Olá Walter, tenho interesse em Consultoria ERP e Fiscal!" class="btn btn-whatsapp" target="_blank" style="font-size:0.82rem;padding:0.55rem 1rem;">💬 Orçamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Contato</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="fade-in" style="color: var(--muted); margin-bottom: 0.5rem;">Disponível para projetos remotos, CLT e freelance.</p>
+    <div class="contact-grid">
+      <a href="https://wa.me/5527999647264" class="contact-card" target="_blank">
+        <div class="contact-card-icon">💬</div>
+        <span class="contact-card-label">WhatsApp</span>
+        <span class="contact-card-value">+55 (27) 99964-7264</span>
       </a>
-        </ul>
-      </nav>
+      <a href="mailto:wdyna@hotmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value">wdyna@hotmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/walterdyna/" class="contact-card" target="_blank">
+        <div class="contact-card-icon">💼</div>
+        <span class="contact-card-label">LinkedIn</span>
+        <span class="contact-card-value">/in/walterdyna</span>
+      </a>
+      <a href="https://github.com/walterdyna" class="contact-card" target="_blank">
+        <div class="contact-card-icon">🐙</div>
+        <span class="contact-card-label">GitHub</span>
+        <span class="contact-card-value">/walterdyna</span>
+      </a>
+    </div>
+    <div class="visitors-bar fade-in">
+      <span class="visitors-label">visitantes do site</span>
+      <img src="https://hits.sh/walterdyna.com.br.svg?style=flat-square&color=00e5ff&labelColor=0a0a0f&label=visitas" alt="contador de visitas" style="height:28px;">
+      <a href="https://www.flagcounter.com" target="_blank">
+        <img src="https://s11.flagcounter.com/count2/xxxx/bg_0A0A0F/txt_64748B/border_2A2A3A/columns_6/maxflags_18/viewers_Visitantes/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" style="max-width:100%; border-radius:8px; border: 1px solid #2a2a3a;">
+      </a>
+    </div>
+  </div>
+</section>
 
-      <form
-      class="formulario-fale-conosco"
-      action="https://formcarry.com/s/3hXtke4QqOt"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <input placeholder="Nome Completo:" type="text" name="nome" />
-      <input placeholder="Telefone:" type="tel" name="telefone" />
-      <input placeholder="E-mail" type="email" name="email" />
-      <textarea
-        placeholder="Olá! Como posso tornar seu dia ainda melhor?..."
-        name="duvida"
-      ></textarea>
-      <button type="submit" class="botão-entre-em-contato" onclick="">
-        Mandar Mensagem
-      </button>
-    </form>
-    
+<footer>
+  <p>Desenvolvido por <span>Walter Dyna</span> — walterdyna.com.br</p>
+</footer>
 
-    </header>
+<script>
+const phrases = ['Desenvolvedor Full Stack','Analista de Sistemas Sênior','Especialista ERP & Fiscal','Gestor de TI & Infraestrutura'];
+let pi=0,ci=0,deleting=false;
+const el=document.getElementById('typed-text');
+function type(){
+  const c=phrases[pi];
+  if(!deleting){el.textContent=c.substring(0,ci+1);ci++;if(ci===c.length){deleting=true;setTimeout(type,1800);return;}}
+  else{el.textContent=c.substring(0,ci-1);ci--;if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}}
+  setTimeout(type,deleting?50:80);
+}
+type();
 
+function animateCounter(el,target){
+  const d=2000,s=performance.now();
+  const u=(t)=>{
+    const p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e*target).toLocaleString('pt-BR');
+    if(p<1)requestAnimationFrame(u);
+  };
+  requestAnimationFrame(u);
+}
 
-    <script src="script.js"></script>
-  </body>
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.dataset.target)animateCounter(e.target,parseInt(e.target.dataset.target));
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll('.fade-in,.timeline-item,[data-target]').forEach(el=>obs.observe(el));
+</script>
+</body>
 </html>
